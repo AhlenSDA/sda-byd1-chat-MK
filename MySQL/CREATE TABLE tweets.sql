@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS tweets (
+id INT(11) NOT NULL AUTO_INCREMENT,
+message VARCHAR(255) NOT NULL,
+message_timestamp TIMESTAMP,
+user_id INT(11) NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
