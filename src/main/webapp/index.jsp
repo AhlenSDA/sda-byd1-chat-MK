@@ -1,8 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page contentType="text/html" pageEncoding="utf-8" %>
 
 <html>
 <head>
-    <title>SDA Chat</title>
+    <title>LOGIN</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 
@@ -11,19 +12,15 @@
 <form>
     <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <input type="text" placeholder="Enter Username" name="nick">
 
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input type="password" placeholder="Enter Password" name="password">
 
-        <button type="submit">Login</button>
+        <button type="submit"><a href="message.jsp">Login</a></button>
         <input type="checkbox" checked="checked"> Remember me
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
 </form>
 
 </body>
