@@ -32,6 +32,12 @@ public class Messages {
     @JoinColumn(name = "user_id", nullable = false, insertable = false, updatable = false)
     private Messages messages;
 
+    public Messages() {
+    }
+
+    public Messages(long time, String message, Users loggedInUser) {
+    }
+
     public long getId() {
         return id;
     }

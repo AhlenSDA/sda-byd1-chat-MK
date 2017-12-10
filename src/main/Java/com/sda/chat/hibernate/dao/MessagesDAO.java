@@ -67,11 +67,11 @@ public class MessagesDAO {
     }
 
     public List<Messages> getMessagesList() {
-        List<Messages> tweets = null;
+        List<Messages> msg = null;
 
         try {
             session.beginTransaction();
-            tweets = session.createQuery("FROM Messages").list();
+            msg = session.createQuery("FROM Messages").list();
             session.getTransaction().commit();
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
@@ -80,6 +80,6 @@ public class MessagesDAO {
             e.printStackTrace();
         }
 
-        return tweets;
+        return msg;
     }
 }
