@@ -1,22 +1,23 @@
 package com.sda.chat.hibernate.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tweets")
+@Table(name = "messages")
 public class Messages {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "user_id")
     private int user_id;
@@ -25,14 +26,17 @@ public class Messages {
     private String message;
 
     @Column(name = "time")
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp timestamp;
 
-    public int getId() {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false, insertable = false, updatable = false)
+    private Messages messages;
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -58,5 +62,13 @@ public class Messages {
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public Messages getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Messages messages) {
+        this.messages = messages;
     }
 }
