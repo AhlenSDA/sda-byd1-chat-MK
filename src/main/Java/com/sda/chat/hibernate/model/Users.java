@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Users {
     private String pass;
 
     @OneToMany
+    @JoinColumn(name = "messages")
     private List<Messages> messagesList = new ArrayList<Messages>();
 
     public List<Messages> getMessagesList() {
